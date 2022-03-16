@@ -1,0 +1,19 @@
+{
+  "name": "@deineagenturug/oci-cli",
+  "version": "1.0.0",
+  "description": "Installing oci-cli binary (Oracle Cloud Infrastructure CLI)",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@vercel/ncc": "^0.33.3",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "ncc build index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@dexus1985",
+  "license": "MIT"
+}

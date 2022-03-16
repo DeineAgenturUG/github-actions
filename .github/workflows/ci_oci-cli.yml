@@ -1,0 +1,28 @@
+name: ci_oci-cli
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - oci-cli/**
+      - .github/workflows/ci_oci-cli.yml
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install oci-cli
+        uses: DeineAgenturUG/github-actions/oci-cli@main
+        with:
+          user: "${{ secrets.OCI_USER }}"
+          fingerprint: "${{ secrets.OCI_FINGERPRINT }}"
+          tenancy: "${{ secrets.OCI_TENANCY }}"
+          region: "${{ secrets.OCI_REGION }}"
+          api_key: |
+            ${{ secrets.OCI_API_KEY }}
+          verbose: true
+      - run: cat ~/.oci/config
+      - run: oci -v

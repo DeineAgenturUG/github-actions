@@ -1,0 +1,35 @@
+name: 'oci-cli'
+description: 'Installing oci-cli (Oracle Cloud Infrastructure CLI)'
+author: 'Josef Fröhle <github@josef-froehle.de>'
+inputs:
+  user:
+    description: 'oci user'
+    required: true
+  fingerprint:
+    description: 'oci fingerprint (not always required)'
+    required: false
+  tenancy:
+    description: 'oci tenancy'
+    required: true
+  region:
+    description: 'oci region'
+    required: true
+  pass_phrase:
+    description: 'Passphrase used for the key, if it is encrypted'
+    required: false
+  api_key:
+    description: 'oci API key'
+    required: true
+  verbose:
+    description: 'Debugging mode'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+  pre-if: 'runner.os == linux'
+
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'
